@@ -34,7 +34,5 @@
 		<a href="<%=request.getContextPath()%>/login/login_form_before.jsp">·Î±×ÀÎ</a>
 		<%
 			}
-		%>
-		
-	
+		%>	
 	</div>

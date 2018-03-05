@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/main.css" />
-	<title>Insert title here</title>
+	<title>login_seccess.jsp</title>
 </head>
 <body>
 <%
@@ -23,29 +23,28 @@
 	System.out.println(S_NAME + "," + S_LEVEL + "," + S_ID + "회원 세션정보");
 	System.out.println(S_NAME + "," + S_LEVEL + "," + S_PHONE + "비회원 세션정보");
 %>
-	<div id="wrapper">		
+	
 	<%@ include file="/module/header.jsp" %>		
-		<div id="nav">
-			<%= S_NAME %>님은 <%= S_LEVEL %> 권한이 있습니다. &nbsp; <a href="<%= request.getContextPath() %>/login/logout.jsp">로그아웃</a>
+	<div id="nav">
+		<%= S_NAME %>님은 <%= S_LEVEL %> 권한이 있습니다. &nbsp; <a href="<%= request.getContextPath() %>/login/logout.jsp">로그아웃</a>
+		
+	</div>		
+	<div id="article">
+		<p>로그인을 환영합니다.</p>
+	<%
+		if(S_LEVEL.equals("비회원")) {
+	%>
+			<p><a href="<%=request.getContextPath() %>/index.jsp">홈으로 가기</a></p>
+	<%
+		}else {
+	%>
+			<p><a href="<%=request.getContextPath() %>/mypage/my_page.jsp">마이페이지로 가기</a></p>
+			<p><a href="<%=request.getContextPath() %>/index.jsp">홈으로 가기</a></p>
+	<%
+		}
+	%>
 			
-		</div>		
-		<div id="article">
-			<p>로그인을 환영합니다.</p>
-	<%
-			if(S_LEVEL.equals("비회원")) {
-	%>
-				<p><a href="<%=request.getContextPath() %>/index.jsp">홈으로 가기</a></p>
-	<%
-			}else {
-	%>
-				<p><a href="<%=request.getContextPath() %>/mypage/my_page.jsp">마이페이지로 가기</a></p>
-				<p><a href="<%=request.getContextPath() %>/index.jsp">홈으로 가기</a></p>
-	<%
-			}
-	%>
-			
-		</div>
-	<%@ include file="/module/footer.jsp" %>	
 	</div>
+	<%@ include file="/module/footer.jsp" %>	
 </body>
 </html>
